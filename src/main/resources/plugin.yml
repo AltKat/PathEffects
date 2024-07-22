@@ -1,0 +1,10 @@
+name: PathEffects
+version: '${version}'
+main: io.github.altkat.pathEffects.PathEffects
+api-version: '1.21'
+author: "StreetMelodeez"
+commands:
+  patheffects:
+    description: "komut"
+    usage: "/patheffects start"
+    permission: patheffects.admin
