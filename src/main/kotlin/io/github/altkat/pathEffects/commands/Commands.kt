@@ -1,11 +1,13 @@
 package io.github.altkat.pathEffects.commands
 
 import io.github.altkat.pathEffects.PathEffects
+import io.github.altkat.pathEffects.gui.guiCreator
 import org.bukkit.Bukkit
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
+import org.bukkit.inventory.Inventory
 
 class Commands (val plugin : PathEffects) : CommandExecutor {
     override fun onCommand(p0: CommandSender, p1: Command, p2: String, p3: Array<out String>): Boolean {
@@ -24,18 +26,22 @@ class Commands (val plugin : PathEffects) : CommandExecutor {
                     plugin.sendMessage(p0, "config-reloaded")
                 }
                 "start" -> {
-                    val currentValue : Boolean = plugin.pathStatus.getOrDefault((p0 as Player).uniqueId, false);
-                    if(!currentValue){
-                        plugin.pathStatus.set((p0 as Player).uniqueId, true);
+                    if(plugin.db.getPlayerStatus(p0 as Player) == 0){
+                        plugin.db.setPlayerStatus(p0 as Player)
                         plugin.sendMessage(p0, "path.path-started")
 
                         Bukkit.getScheduler().runTaskLater(plugin, Runnable {
-                            plugin.pathStatus.set((p0 as Player).uniqueId, false)
+                            plugin.db.setPlayerStatus(p0 as Player)
                             plugin.sendMessage(p0, "path.path-ended")
                         }, plugin.config.getInt("pathDuration") * 20L)
                     } else {
                         plugin.sendMessage(p0, "path.path-already-started")
                     }
+                }
+                "gui" -> {
+                    val inventory : Inventory = guiCreator(plugin).createGUI()
+                    val player: Player = (p0 as Player)
+                    player.openInventory(inventory)
                 }
             }
 

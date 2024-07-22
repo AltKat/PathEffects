@@ -1,4 +1,45 @@
-blockType: SEA_LANTERN
+blockTypes:
+  menu-size: 54
+  default:
+    block: SEA_LANTERN
+    slot: 0
+    price: 25000
+    title: '&e&l&nDefault'
+    lore:
+      - ' '
+      - '&aAn effect that brightens your path'
+      - '&k########'
+      - '&f&nCost: 25000'
+  type1:
+    block: GLOWSTONE
+    slot: 4
+    price: 30000
+    title: '&a&l&nType1'
+    lore:
+      - ' '
+      - '&aAn effect that brightens your path'
+      - '&k########'
+      - '&f&nCost: 30000'
+  type2:
+    block: REDSTONE_BLOCK
+    slot: 8
+    price: 35000
+    title: '&b&l&nType2'
+    lore:
+      - ' '
+      - '&aAn effect that brightens your path'
+      - '&k########'
+      - '&f&nCost: 35000'
+  type3:
+    block: COAL_BLOCK
+    slot: 22
+    price: 40000
+    title: '&6&l&nType3'
+    lore:
+      - ' '
+      - '&aAn effect that brightens your path'
+      - '&k########'
+      - '&f&nCost: 40000'
 blockRemovalDuration: 2
 pathDuration: 10
 pluginTag: "&5[PathEffects]"
@@ -8,5 +49,6 @@ messages:
     path-started: "&aYol efektleri başladı!"
     path-ended: "&cYol efektleri bitti!"
     path-already-started: "&cYol efektleri zaten başladı!"
+    selection-message: "&aBaşarıyla yeni yol efektini seçtin"
   no-permission: "&cBu komutu kullanmak için yetkiniz yok!"
   config-reloaded: "&aConfig dosyası yeniden yüklendi!"

@@ -19,6 +19,7 @@ repositories {
 dependencies {
     compileOnly("org.spigotmc:spigot-api:1.21-R0.1-SNAPSHOT")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    implementation("org.xerial:sqlite-jdbc:3.41.2.2")
 }
 
 val targetJavaVersion = 21
