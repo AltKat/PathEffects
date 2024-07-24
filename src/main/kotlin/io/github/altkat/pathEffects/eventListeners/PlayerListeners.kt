@@ -23,6 +23,9 @@ class PlayerListeners (val plugin : PathEffects) : Listener {
     @EventHandler
     fun onPlayerMovement(event: PlayerMoveEvent) {
         var player = event.player
+        if(!player.hasPermission("patheffects.default") && !player.hasPermission("type1") && !player.hasPermission("type2") && !player.hasPermission("type3") && !player.hasPermission("type4")){
+            return
+        }
         val pathStatus : Boolean = plugin.pathStatus.getOrDefault(event.player.uniqueId, false)
         var PlayerStatus = plugin.db.getPlayerStatus(player)
         var configBlock : Material = Material.DIAMOND_BLOCK
@@ -33,6 +36,7 @@ class PlayerListeners (val plugin : PathEffects) : Listener {
             "type1" -> plugin.config.getString("blockTypes.type1.block")?.let { Material.valueOf(it) }!!
             "type2" -> plugin.config.getString("blockTypes.type2.block")?.let { Material.valueOf(it) }!!
             "type3" -> plugin.config.getString("blockTypes.type3.block")?.let { Material.valueOf(it) }!!
+            "type4" -> plugin.config.getString("blockTypes.type4.block")?.let { Material.valueOf(it) }!!
             else -> plugin.config.getString("blockTypes.default.block")?.let { Material.valueOf(it) }!!
         }
 

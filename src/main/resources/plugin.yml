@@ -7,4 +7,3 @@ commands:
   patheffects:
     description: "komut"
     usage: "/patheffects start"
-    permission: patheffects.admin

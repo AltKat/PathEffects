@@ -1,5 +1,6 @@
 package io.github.altkat.pathEffects
 
+import com.earth2me.essentials.Essentials
 import io.github.altkat.pathEffects.commands.Commands
 import io.github.altkat.pathEffects.database.database
 import io.github.altkat.pathEffects.eventListeners.PlayerListeners
@@ -7,6 +8,7 @@ import io.github.altkat.pathEffects.gui.GUIListener
 import org.bukkit.ChatColor
 import org.bukkit.block.Block
 import org.bukkit.command.CommandSender
+import org.bukkit.entity.Player
 import org.bukkit.plugin.java.JavaPlugin
 import java.io.File
 import java.util.*
@@ -35,17 +37,18 @@ class PathEffects : JavaPlugin() {
         db.connect()
         db.createTable()
 
+
         // Plugin startup logic
-        server.consoleSender.sendMessage("[${ChatColor.GREEN} $pluginTag] is enabled")
+        server.consoleSender.sendMessage("${ChatColor.GREEN}[$pluginTag] is enabled")
         server.pluginManager.registerEvents(PlayerListeners(this), this)
-        server.pluginManager.registerEvents(GUIListener(this),this)
+        server.pluginManager.registerEvents(GUIListener(this), this)
         getCommand("patheffects")?.setExecutor(Commands(this))
         reloadPlugin()
     }
 
     override fun onDisable() {
         // Plugin shutdown logic
-        server.consoleSender.sendMessage("[${ChatColor.RED} $pluginTag] is disabled")
+        server.consoleSender.sendMessage("${ChatColor.RED}[$pluginTag] is disabled")
 
         // Veritabanı bağlantısını kapat
         db.close()

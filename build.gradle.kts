@@ -14,12 +14,27 @@ repositories {
     maven("https://oss.sonatype.org/content/groups/public/") {
         name = "sonatype"
     }
+    maven {
+        name = "essentialsxReleases"
+        url = uri("https://repo.essentialsx.net/releases")
+    }
+    maven {
+        name = "essentialsxSnapshots"
+        url = uri("https://repo.essentialsx.net/snapshots")
+    }
+    maven {
+        url = uri("https://papermc.io/repo/repository/maven-public/")
+    }
+
 }
+
 
 dependencies {
     compileOnly("org.spigotmc:spigot-api:1.21-R0.1-SNAPSHOT")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("org.xerial:sqlite-jdbc:3.41.2.2")
+    implementation("net.essentialsx:EssentialsX:2.20.1")
+    implementation("io.papermc:paperlib:1.0.6")
 }
 
 val targetJavaVersion = 21

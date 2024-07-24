@@ -1,45 +1,127 @@
 blockTypes:
   menu-size: 54
   default:
+    guiBlock: SEA_LANTERN
     block: SEA_LANTERN
     slot: 0
-    price: 25000
+    price: 500
     title: '&e&l&nDefault'
     lore:
       - ' '
-      - '&aAn effect that brightens your path'
-      - '&k########'
+      - '&bAn effect that brightens your path'
+      - ' '
+    lockedlore:
+      - ' '
+      - '&cAn effect that brightens your path'
+      - ' '
       - '&f&nCost: 25000'
+      - ' '
+      - '&7[&cLOCKED&7]'
+    selectedlore:
+      - ' '
+      - '&aAn effect that brightens your path'
+      - ' '
+      - '&a&l[SELECTED]'
+    commands:
+      - "lp user %player% permission set patheffects.default true"
   type1:
+    guiBlock: GLOWSTONE
     block: GLOWSTONE
-    slot: 4
-    price: 30000
+    slot: 1
+    price: 500
     title: '&a&l&nType1'
     lore:
       - ' '
-      - '&aAn effect that brightens your path'
-      - '&k########'
+      - '&6An effect that brightens your path'
+      - ' '
+    lockedlore:
+      - ' '
+      - '&cAn effect that brightens your path'
+      - ' '
       - '&f&nCost: 30000'
+      - ' '
+      - '&7[&cLOCKED&7]'
+    selectedlore:
+      - ' '
+      - '&aAn effect that brightens your path'
+      - ' '
+      - '&a&l[SELECTED]'
   type2:
+    guiBlock: REDSTONE_BLOCK
     block: REDSTONE_BLOCK
-    slot: 8
-    price: 35000
+    slot: 2
+    price: 500
     title: '&b&l&nType2'
     lore:
       - ' '
-      - '&aAn effect that brightens your path'
-      - '&k########'
+      - '&3An effect that brightens your path'
+      - ' '
+    lockedlore:
+      - ' '
+      - '&cAn effect that brightens your path'
+      - ' '
       - '&f&nCost: 35000'
+      - ' '
+      - '&7[&cLOCKED&7]'
+    selectedlore:
+      - ' '
+      - '&aAn effect that brightens your path'
+      - ' '
+      - '&a&l[SELECTED]'
   type3:
-    block: COAL_BLOCK
-    slot: 22
-    price: 40000
+    guiBlock: GOLD_BLOCK
+    block: GOLD_BLOCK
+    slot: 3
+    price: 500
     title: '&6&l&nType3'
     lore:
       - ' '
-      - '&aAn effect that brightens your path'
-      - '&k########'
+      - '&bAn effect that brightens your path'
+      - ' '
+    lockedlore:
+      - ' '
+      - '&cAn effect that brightens your path'
+      - ' '
       - '&f&nCost: 40000'
+      - ' '
+      - '&7[&cLOCKED&7]'
+    selectedlore:
+      - ' '
+      - '&aAn effect that brightens your path'
+      - ' '
+      - '&a&l[SELECTED]'
+  type4:
+    guiBlock: GLASS
+    block: GLASS
+    slot: 4
+    price: 500
+    title: '&6&l&nType4'
+    lore:
+      - ' '
+      - '&2An effect that brightens your path'
+      - ' '
+    lockedlore:
+      - ' '
+      - '&cAn effect that brightens your path'
+      - ' '
+      - '&f&nCost: 45000'
+      - ' '
+      - '&7[&cLOCKED&7]'
+    selectedlore:
+      - ' '
+      - '&aAn effect that brightens your path'
+      - ' '
+      - '&a&l[SELECTED]'
+  statusBlock:
+    activeBlock: EMERALD_BLOCK
+    activeBlockTitle: '&aACTIVE'
+    activeBlockLore:
+    - '&bClick to deactivate'
+    deactiveBlock: REDSTONE_BLOCK
+    deactiveBlockTitle: '&cDEACTIVE'
+    deactiveBlockLore:
+      - '&aClick to activate'
+
 blockRemovalDuration: 2
 pathDuration: 10
 pluginTag: "&5[PathEffects]"
@@ -48,7 +130,11 @@ messages:
     usage: "&cKullanım: &b/patheffects start"
     path-started: "&aYol efektleri başladı!"
     path-ended: "&cYol efektleri bitti!"
-    path-already-started: "&cYol efektleri zaten başladı!"
+    already-ended: "&cEfekt zaten sona erdi!"
+    already-started: "&cEfekt zaten başladı!"
     selection-message: "&aBaşarıyla yeni yol efektini seçtin"
+    already-selected: "&cZaten bu efekt seçili!"
+    cantWhileActive: "&cEfekt aktifken başka bir efekt seçemezsin!"
+    bought: "&aEfekti başarıyla satın aldın!"
   no-permission: "&cBu komutu kullanmak için yetkiniz yok!"
   config-reloaded: "&aConfig dosyası yeniden yüklendi!"
